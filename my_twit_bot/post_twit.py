@@ -25,10 +25,10 @@ def create_twit():
     return (message) 
 
 if __name__ == "__main__":
-    CONSUMER_KEY = process.env.consumer_key 
-    CONSUMER_SECRET = process.env.consumer_secret 
-    ACCESS_TOKEN = process.env.access_token 
-    ACCESS_TOKEN_SECRET = process.env.access_token_secret 
+    CONSUMER_KEY = os.getenv("consumer_key")
+    CONSUMER_SECRET = os.getenv("consumer_secret")
+    ACCESS_TOKEN = os.getenv("access_token")
+    ACCESS_TOKEN_SECRET = os.getenv("access_token_secret")
     api = authorization_for_twi(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)    
     message = create_twit()
     api.PostUpdate(message)
